@@ -122,10 +122,19 @@
   <p class="mt-4 text-xl">Am  Praveen Kumar.S</p>
   <p class="mt-4 text-xl">Web Developer | 3 Months Work Experience</p>
   
-  <div class="mt-6">
-    <button id="viewResume" class="bg-blue-600 text-white px-4 py-2 rounded-lg">View Resume</button>
-    <a href="https://drive.google.com/file/d/1JKpPaTPkXSFvZc7FMozbIpLgK0JQodeT/view?usp=drivesdk" download class="bg-green-600 text-white px-4 py-2 ml-4 rounded-lg">Download Resume</a>
+  <div class="mt-6 flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
+    <!-- View Resume Button -->
+    <button id="viewResume" class="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      View Resume
+    </button>
+    
+    <!-- Download Resume Button -->
+    <a href="https://drive.google.com/file/d/1JKpPaTPkXSFvZc7FMozbIpLgK0JQodeT/view?usp=drivesdk" download 
+       class="bg-green-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">
+      Download Resume
+    </a>
   </div>
+  
 
   <div id="resumeModal" class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
     <div class="bg-white p-6 rounded-lg w-1/2">
