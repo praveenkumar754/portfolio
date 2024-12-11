@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  /* style.css */
+  /* Animation for gradient background */
+  @keyframes gradientBackground {
+    0% {
+      background: linear-gradient(45deg, #6EE7B7, #3B82F6);
+    }
+    50% {
+      background: linear-gradient(45deg, #F59E0B, #9333EA);
+    }
+    100% {
+      background: linear-gradient(45deg, #3B82F6, #6EE7B7);
+    }
+  }
+
+  /* Apply the gradient animation to the body */
+  body {
+    animation: gradientBackground 10s ease infinite;
+    background-size: 400% 400%;
+  }
+
+  /* Animation Example */
+  @keyframes slideIn {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+  }
+
+  #home {
+    animation: slideIn 1s ease-out;
+  }
+
+  /* Mobile View Adjustments */
+  @media screen and (max-width: 768px) {
+    .container {
+      padding: 20px;
+    }
+
+    .skill-card, .project-card {
+      margin-bottom: 20px;
+    }
+
+    #menuLinks {
+      flex-direction: column;  /* Stack menu items vertically */
+      position: absolute;
+      top: 16px;
+      left: 0;
+      width: 100%;
+      background-color: rgba(37, 99, 235, 1);  /* Blue color for mobile background */
+      display: none;  /* Initially hidden */
+    }
+
+    #menuLinks.show {
+      display: flex;  /* Show when toggled */
+    }
+
+    #menuLinks li {
+      text-align: center; /* Center menu items */
+      padding: 10px;
+    }
+
+    #cancelMenu {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+      display: none;  /* Initially hidden */
+    }
+
+    #menuLinks.show + #cancelMenu {
+      display: block;  /* Show cancel when menu is open */
+    }
+  }
+</style>
+<body class="bg-gray-100">
+
+<!-- Navigation Bar -->
+<nav class="bg-blue-600 p-4 fixed w-full top-0 z-50">
+  <div class="container mx-auto flex justify-between items-center">
+    <!-- Logo/Brand Name -->
+    <a href="#home" class="text-white text-xl">My Portfolio</a>
+    
+    <!-- Menu Toggle for Mobile -->
+    <button id="menuToggle" class="text-white md:hidden">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+    
+    <!-- Menu Links -->
+    <ul id="menuLinks" class="flex space-x-6 md:flex hidden md:flex-row">
+      <li><a href="#home" class="text-white py-2 px-4">Home</a></li>
+      <li><a href="#contact" class="text-white py-2 px-4">Contact Us</a></li>
+      <li><a href="#skills" class="text-white py-2 px-4">Skills</a></li>
+      <li><a href="#experience" class="text-white py-2 px-4">Experience</a></li>
+    </ul>
+    <!-- Cancel button for mobile view -->
+    <span id="cancelMenu" class="md:hidden text-white text-xl cursor-pointer">×</span>
+  </div>
+</nav>
+
+<!-- Home Section -->
+<section id="home" class="mt-20 p-10 bg-gray-200 text-center">
+  <h1 class="text-4xl font-semibold">Welcome to My Portfolio</h1>
+  <img src="image.png" alt="Profile Picture" class="mx-auto mt-4 rounded-full w-40 h-40">
+  <p class="mt-4 text-xl">Web Developer | 3 Months Experience</p>
+  
+  <div class="mt-6">
+    <button id="viewResume" class="bg-blue-600 text-white px-4 py-2 rounded-lg">View Resume</button>
+    <a href="https://drive.google.com/file/d/1JKpPaTPkXSFvZc7FMozbIpLgK0JQodeT/view?usp=drivesdk" download class="bg-green-600 text-white px-4 py-2 ml-4 rounded-lg">Download Resume</a>
+  </div>
+
+  <div id="resumeModal" class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
+    <div class="bg-white p-6 rounded-lg w-1/2">
+      <button class="closeModal text-red-600">Close</button>
+      <h2 class="text-2xl font-semibold">Resume Details</h2>
+      <p>Your resume content goes here...</p>
+    </div>
+  </div>
+</section>
+
+<!-- About Us Section -->
+<section id="about" class="p-10 bg-gray-300 text-center">
+  <h2 class="text-3xl font-semibold">About Me</h2>
+  <p class="mt-4 text-xl">I have been working as a web developer for 3 months, specializing in front-end and back-end technologies.</p>
+  <ul class="mt-6">
+    <li>Learned HTML, CSS, JavaScript, ReactJS,ExpressJS,MongoDB,Wordpress and PHP.</li>
+    <li>Worked with MERN stack (MongoDB, ExpressJS, ReactJS, Wordpress,PHP).</li>
+    <li>Developed responsive websites .</li>
+  </ul>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="p-10 bg-gray-200 text-center">
+  <h2 class="text-3xl font-semibold">My Skills</h2>
+  <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+    <div class="skill-card p-4 bg-white rounded-lg">
+      <h3 class="text-xl font-semibold">HTML & CSS</h3>
+      <p> In building responsive layouts.</p>
+    </div>
+    <div class="skill-card p-4 bg-white rounded-lg">
+      <h3 class="text-xl font-semibold">JavaScript</h3>
+      <p>In creating dynamic content.</p>
+    </div>
+    <div class="skill-card p-4 bg-white rounded-lg">
+      <h3 class="text-xl font-semibold">ReactJS</h3>
+      <p>Developed complex UIs using React.</p>
+    </div>
+    <div class="skill-card p-4 bg-white rounded-lg">
+      <h3 class="text-xl font-semibold">MongoDB</h3>
+      <p>Database management for website.</p>
+    </div>
+    <div class="skill-card p-4 bg-white rounded-lg">
+      <h3 class="text-xl font-semibold">Wordpress</h3>
+      <p>Developing designing templates</p>
+    </div>
+    <div class="skill-card p-4 bg-white rounded-lg">
+      <h3 class="text-xl font-semibold">PHP</h3>
+      <p>Developing basics projects</p>
+    </div>
+   
+  </div>
+</section>
+
+<!-- Working Projects Section -->
+<section id="projects" class="p-10 bg-gray-300 text-center">
+  <h2 class="text-3xl font-semibold">My Projects</h2>
+  <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="project-card p-6 bg-white rounded-lg">
+      <h3 class="text-xl font-semibold">Courier Tracking (MERN Stack)</h3>
+      <p>Track parcels in real-time using MongoDB, Express, ReactJS.</p>
+    </div>
+    <div class="project-card p-6 bg-white rounded-lg">
+      <h3 class="text-xl font-semibold">WordPress Design Templates</h3>
+      <p>Custom WordPress themes and templates built with PHP.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer Section -->
+<footer id="contact" class="bg-blue-600 p-4 text-white text-center">
+  <p>Contact: 9025564545 | Email: skrpraveenkumar123@gmail.com</p>
+  <p>Experience: 6 months</p>
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+// script.js
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Open Resume View Modal (Link to Google Drive)
+  document.getElementById('viewResume').addEventListener('click', function() {
+    window.open('https://drive.google.com/file/d/1JKpPaTPkXSFvZc7FMozbIpLgK0JQodeT/view?usp=drivesdk', '_blank');
+  });
+
+  // Close Resume View Modal
+  document.querySelector('.closeModal').addEventListener('click', function() {
+    document.getElementById('resumeModal').classList.add('hidden');
+  });
+
+  // Mobile Menu Toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const menuLinks = document.getElementById('menuLinks');
+  const cancelMenu = document.getElementById('cancelMenu');
+
+  // Show menu when toggled
+  menuToggle.addEventListener('click', () => {
+    menuLinks.classList.toggle('show');
+  });
+
+  // Hide menu when cancel button is clicked
+  cancelMenu.addEventListener('click', () => {
+    menuLinks.classList.remove('show');
+  });
+});
+</script>
+
+</body>
+</html>
